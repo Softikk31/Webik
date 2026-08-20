@@ -18,7 +18,6 @@ import dev.softikk.webkit.theme.WebTheme
  * @param footer нижний колонтитул.
  * @param theme тема, используй класс [dev.softikk.webkit.theme.WebTheme].
  * @param content основной контент сайта.
- * @sample [App]
  */
 
 @Composable

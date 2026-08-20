@@ -1,4 +1,4 @@
-rootProject.name = "SoftikkWebKit"
+rootProject.name = "Webik"
 
 pluginManagement {
     repositories {
@@ -26,6 +26,3 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-include(":library")
-include(":webApp")
