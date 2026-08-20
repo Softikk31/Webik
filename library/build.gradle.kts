@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    `maven-publish`
 }
 
 kotlin {
@@ -19,7 +20,7 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.2")
+            implementation(libs.androidx.navigation.compose)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
@@ -34,6 +35,18 @@ kotlin {
         }
         jsMain.dependencies {
             implementation(libs.wrappers.browser)
+        }
+    }
+}
+
+publishing {
+    publications {
+        withType<MavenPublication>().configureEach {
+            artifactId = if (name == "kotlinMultiplatform") {
+                "softikk-webkit"
+            } else {
+                "softikk-webkit-$name"
+            }
         }
     }
 }
