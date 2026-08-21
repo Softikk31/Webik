@@ -3,6 +3,7 @@ package dev.softikk.webkit.components.layout
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -16,6 +17,9 @@ import dev.softikk.webkit.theme.DimensTheme
 @Composable
 fun BasicHeader(
     colorContainer: Color = MaterialTheme.colorScheme.surface,
+    contentPadding: PaddingValues = PaddingValues(
+        horizontal = DimensTheme.paddings.xlPadding, vertical = DimensTheme.paddings.largePadding
+    ),
     logo: @Composable () -> Unit = {},
     navigation: @Composable () -> Unit = {},
     actions: @Composable () -> Unit = {}
@@ -24,7 +28,7 @@ fun BasicHeader(
         modifier = Modifier.fillMaxWidth().background(colorContainer)
     ) {
         Row(
-            modifier = Modifier.padding(DimensTheme.paddings.mediumPadding),
+            modifier = Modifier.padding(contentPadding),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
